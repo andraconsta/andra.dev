@@ -3,29 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <title>Andra Constandache | Data Scientist | Analytics &amp; BI</title>
-  <meta name="description" content="Andra Constandache — CEO, founder, and visionary leader." />
+  <meta name="description" content="Andra Constandache - CEO, founder, and visionary leader." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #0a0a0f; --surface: #13131a; --accent: #c8a97e; --accent2: #9b6fff; --text: #f0ede8; --muted: #8a8794; --border: rgba(200,169,126,0.15); }
+    :root {
+      --bg: #0a0a14;
+      --surface: #111827;
+      --accent: #c8a97e;
+      --accent2: #d4b896;
+      --navy: #1a3a5c;
+      --navy-light: #1e4a6e;
+      --navy-dark: #0f2440;
+      --text: #f0ede8;
+      --muted: #8a8794;
+      --border: rgba(200,169,126,0.15);
+    }
     html { scroll-behavior: smooth; }
     body { font-family: 'Georgia', serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.7; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(10,10,15,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-size: 1.1rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(10,10,20,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: all 0.3s; }
+    .nav-logo { font-size: 1.1rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 600; text-decoration: none; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-family: -apple-system, sans-serif; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s; }
     .nav-links a:hover { color: var(--accent); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
+    .hamburger span { width: 24px; height: 2px; background: var(--accent); transition: all 0.3s; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
     .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8rem 2rem 4rem; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(155,111,255,0.08) 0%, transparent 70%); pointer-events: none; }
-    .hero-tag { display: inline-block; font-family: -apple-system, sans-serif; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 0.4rem 1.2rem; border-radius: 100px; margin-bottom: 2rem; }
-    .hero h1 { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
-    .hero h1 span { color: var(--accent); font-style: italic; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,58,92,0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero-tag { display: inline-block; font-family: -apple-system, sans-serif; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--border); padding: 0.5rem 1.5rem; margin-bottom: 2rem; border-radius: 2rem; }
+    .hero h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .hero h1 .typed-text { color: var(--accent); font-style: italic; }
+    .hero h1 .cursor { display: inline-block; width: 3px; height: 1em; background: var(--accent); margin-left: 4px; animation: blink 1s infinite; vertical-align: text-bottom; }
+    @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
     .hero-sub { font-family: -apple-system, sans-serif; font-size: 1.1rem; color: var(--muted); max-width: 540px; margin: 0 auto 3rem; font-weight: 300; }
     .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn { font-family: -apple-system, sans-serif; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 2.4rem; border-radius: 100px; transition: all 0.3s; cursor: pointer; border: none; }
+    .btn { font-family: -apple-system, sans-serif; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 2.4rem; border-radius: 4px; transition: all 0.3s; cursor: pointer; border: none; }
     .btn-primary { background: var(--accent); color: var(--bg); font-weight: 600; }
     .btn-primary:hover { background: #dfc090; transform: translateY(-1px); }
     .btn-secondary { background: transparent; color: var(--text); border: 1px solid rgba(240,237,232,0.25); }
@@ -33,85 +51,333 @@
     section { padding: 7rem 2rem; }
     .container { max-width: 1000px; margin: 0 auto; }
     .section-label { font-family: -apple-system, sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; }
     .section-body { font-family: -apple-system, sans-serif; color: var(--muted); font-size: 1.05rem; max-width: 620px; font-weight: 300; line-height: 1.8; }
     #about { background: var(--surface); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .about-visual { aspect-ratio: 4/5; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
     .about-visual::after { content: 'A'; font-size: 10rem; color: rgba(200,169,126,0.08); font-style: italic; font-family: Georgia, serif; }
-    .about-visual-accent { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--accent), var(--accent2)); }
-    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
-    .value-card { padding: 2rem; border: 1px solid var(--border); border-radius: 4px; background: var(--surface); transition: border-color 0.3s, transform 0.3s; }
-    .value-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .value-number { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-family: -apple-system, sans-serif; }
-    .value-title { font-size: 1.3rem; margin-bottom: 0.75rem; font-weight: 400; }
-    .value-desc { font-family: -apple-system, sans-serif; color: var(--muted); font-size: 0.9rem; line-height: 1.7; font-weight: 300; }
-    #contact { background: var(--surface); }
-    .contact-inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .contact-inner .section-body { text-align: center; margin: 0 auto 2.5rem; }
-    .contact-email { font-size: clamp(1.2rem, 3vw, 2rem); color: var(--accent); text-decoration: none; font-style: italic; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-    .contact-email:hover { border-color: var(--accent); }
-    footer { padding: 2rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: -apple-system, sans-serif; font-size: 0.75rem; color: var(--muted); }
-    @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .about-grid { grid-template-columns: 1fr; } .values-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 1rem; text-align: center; } }
+    .about-visual-accent { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--accent), var(--navy)); }
+    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 2.5rem; font-weight: 300; color: var(--accent); font-family: Georgia, serif; }
+    .stat-label { font-family: -apple-system, sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+    .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem 1rem; text-align: center; transition: all 0.3s; }
+    .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .skill-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .skill-name { font-family: -apple-system, sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: all 0.3s; }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .project-thumb { aspect-ratio: 16/9; background: var(--navy-dark); display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; }
+    .play-btn { width: 50px; height: 50px; border-radius: 50%; background: rgba(200,169,126,0.9); display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
+    .play-btn::after { content: ''; border-left: 14px solid var(--bg); border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
+    .project-thumb:hover .play-btn { transform: scale(1.1); }
+    .project-info { padding: 1.5rem; }
+    .project-tag { font-family: -apple-system, sans-serif; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .project-title { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .project-desc { font-family: -apple-system, sans-serif; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+    .timeline-step { text-align: center; position: relative; }
+    .timeline-step::before { content: ''; position: absolute; top: 24px; left: 50%; right: -50%; height: 1px; background: var(--border); z-index: 0; }
+    .timeline-step:last-child::before { display: none; }
+    .step-num { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: -apple-system, sans-serif; font-size: 0.85rem; color: var(--accent); margin: 0 auto 1rem; background: var(--bg); position: relative; z-index: 1; }
+    .step-title { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .step-desc { font-family: -apple-system, sans-serif; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+    .testimonial-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; position: relative; }
+    .testimonial-card::before { content: '\201C'; font-size: 4rem; color: var(--accent); opacity: 0.3; position: absolute; top: 0.5rem; left: 1rem; font-family: Georgia, serif; line-height: 1; }
+    .testimonial-text { font-style: italic; color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; padding-top: 1rem; }
+    .testimonial-author { font-family: -apple-system, sans-serif; font-size: 0.82rem; color: var(--text); }
+    .testimonial-role { font-family: -apple-system, sans-serif; font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+    .blog-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: all 0.3s; text-decoration: none; color: inherit; }
+    .blog-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .blog-thumb { aspect-ratio: 16/9; background: var(--navy-dark); display: flex; align-items: center; justify-content: center; }
+    .blog-thumb-icon { font-size: 2rem; opacity: 0.4; }
+    .blog-info { padding: 1.5rem; }
+    .blog-date { font-family: -apple-system, sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .blog-title { font-size: 1.05rem; margin-bottom: 0.5rem; line-height: 1.4; }
+    .blog-excerpt { font-family: -apple-system, sans-serif; font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .cta-section { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-dark) 100%); text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .cta-section .section-title { max-width: 600px; margin: 0 auto 1rem; }
+    .cta-section .section-body { max-width: 500px; margin: 0 auto 2.5rem; }
+    .certs-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
+    .cert-badge { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.5rem; font-family: -apple-system, sans-serif; font-size: 0.82rem; color: var(--text); transition: all 0.3s; display: flex; align-items: center; gap: 0.8rem; }
+    .cert-badge:hover { border-color: var(--accent); }
+    .cert-icon { font-size: 1.3rem; }
+    .easter-egg { text-align: center; background: var(--surface); }
+    .canvas-container { margin: 2rem auto 0; max-width: 600px; }
+    #drawingCanvas { border: 1px solid var(--border); border-radius: 4px; cursor: crosshair; background: var(--bg); display: block; margin: 0 auto; }
+    .canvas-controls { display: flex; gap: 0.8rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
+    .canvas-btn { font-family: -apple-system, sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.2rem; background: transparent; border: 1px solid var(--border); color: var(--muted); border-radius: 4px; cursor: pointer; transition: all 0.3s; }
+    .canvas-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .color-picker { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.8rem; }
+    .color-dot { width: 24px; height: 24px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: border-color 0.3s; }
+    .color-dot:hover, .color-dot.active { border-color: var(--text); }
+    footer { padding: 4rem 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .footer-links { display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-family: -apple-system, sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-family: -apple-system, sans-serif; font-size: 0.75rem; color: var(--muted); }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .hamburger { display: flex; }
+      .nav-links { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: var(--surface); flex-direction: column; padding: 5rem 2rem; gap: 1.5rem; transition: right 0.3s; border-left: 1px solid var(--border); }
+      .nav-links.open { right: 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .timeline { grid-template-columns: 1fr; gap: 3rem; }
+      .timeline-step::before { display: none; }
+      .projects-grid, .blog-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <nav>
-    <div class="nav-logo">Andra Constandache</div>
+    <a href="#" class="nav-logo">AC</a>
+    <div class="hamburger" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open');">
+      <span></span><span></span><span></span>
+    </div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#vision">Vision</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>h
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+      <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+      <li><a href="#process" onclick="closeMenu()">Process</a></li>
+      <li><a href="#blog" onclick="closeMenu()">Blog</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Hire Me</a></li>
+    </ul>
   </nav>
   <section class="hero">
-    <div class="hero-tag">Data Scientist | Analytics &amp; BI</div>
-    <h1>Andra<br /><span>Constandache</span></h1>
-    <p class="hero-sub">Turning complex data into clear business decisions.</p>
+    <span class="hero-tag">Data Scientist &bull; Analytics &bull; BI</span>
+    <h1>Hi, I'm Andra.<br><span class="typed-text" id="typed"></span><span class="cursor">|</span></h1>
+    <p class="hero-sub">Turning complex data into clear, actionable insights that drive business decisions.</p>
     <div class="hero-cta">
-      <a href="#about" class="btn btn-primary">Learn More</a>
-      <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      <a href="#contact" class="btn btn-primary">Book a Free Consultation</a>
+      <a href="#projects" class="btn btn-secondary">View My Work</a>
     </div>
   </section>
   <section id="about">
+    <div class="container about-grid">
+      <div class="about-visual"><div class="about-visual-accent"></div></div>
+      <div>
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">Data storyteller with a passion for impact</h2>
+        <p class="section-body">I help businesses unlock the power of their data through analytics, machine learning, and compelling visualizations. With a background in data science and business intelligence, I transform raw numbers into strategic assets.</p>
+      </div>
+    </div>
+  </section>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Projects Delivered</div></div>
+    <div class="stat-item"><div class="stat-number">98%</div><div class="stat-label">Client Satisfaction</div></div>
+    <div class="stat-item"><div class="stat-number">3+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label">Tools Mastered</div></div>
+  </div>
+  <section id="skills">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-visual"><div class="about-visual-accent"></div></div>
-        <div>
-          <p class="section-label">About</p>
-          <h2 class="section-title">Data Scientist | Power BI &amp; Analytics Specialist</h2>
-          <p class="section-body">I am Andra Constandache — entrepreneur, CEO, and founder. I build companies and ideas that matter, combining strategic thinking with a relentless drive to create lasting impact.</p>
-          <br />
-          <p class="section-body">My work sits at the intersection of innovation, leadership, and human connection. I believe great businesses are built on clarity of mission and strength of culture.</p>
+      <p class="section-label">Technical Skills</p>
+      <h2 class="section-title">My toolkit</h2>
+      <div class="skills-grid">
+        <div class="skill-card"><div class="skill-icon">&#x1F40D;</div><div class="skill-name">Python</div></div>
+        <div class="skill-card"><div class="skill-icon">&#x1F4CA;</div><div class="skill-name">SQL</div></div>
+        <div class="skill-card"><div class="skill-icon">&#x1F4C8;</div><div class="skill-name">Tableau</div></div>
+        <div class="skill-card"><div class="skill-icon">&#x26A1;</div><div class="skill-name">Power BI</div></div>
+        <div class="skill-card"><div class="skill-icon">&#x1F916;</div><div class="skill-name">Machine Learning</div></div>
+        <div class="skill-card"><div class="skill-icon">&#x2601;</div><div class="skill-name">AWS</div></div>
+        <div class="skill-card"><div class="skill-icon">&#x1F4D0;</div><div class="skill-name">R</div></div>
+        <div class="skill-card"><div class="skill-icon">&#x1F9EA;</div><div class="skill-name">A/B Testing</div></div>
+        <div class="skill-card"><div class="skill-icon">&#x1F310;</div><div class="skill-name">Web Scraping</div></div>
+        <div class="skill-card"><div class="skill-icon">&#x1F4DD;</div><div class="skill-name">Excel</div></div>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Featured Projects</p>
+      <h2 class="section-title">Work that speaks</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-thumb"><div class="play-btn"></div></div>
+          <div class="project-info">
+            <p class="project-tag">Data Analytics</p>
+            <h3 class="project-title">Sales Dashboard Optimization</h3>
+            <p class="project-desc">Built an interactive dashboard reducing report time by 60% for a retail client.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb"><div class="play-btn"></div></div>
+          <div class="project-info">
+            <p class="project-tag">Machine Learning</p>
+            <h3 class="project-title">Customer Churn Prediction</h3>
+            <p class="project-desc">Developed an ML model achieving 94% accuracy in predicting customer churn.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb"><div class="play-btn"></div></div>
+          <div class="project-info">
+            <p class="project-tag">Business Intelligence</p>
+            <h3 class="project-title">Market Analysis Pipeline</h3>
+            <p class="project-desc">Automated data pipeline processing 1M+ records daily for market insights.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="vision">
+  <section id="process">
     <div class="container">
-      <p class="section-label">Vision &amp; Values</p>
-      <h2 class="section-title">What I stand for</h2>
-      <p class="section-body">Every decision I make is grounded in three core principles that guide how I lead, build, and grow.</p>
-      <div class="values-grid">
-        <div class="value-card"><div class="value-number">01</div><h3 class="value-title">Bold Vision</h3><p class="value-desc">I think long-term and build for significance, not just success. Every venture starts with a clear picture of the world I want to create.</p></div>
-        <div class="value-card"><div class="value-number">02</div><h3 class="value-title">Radical Clarity</h3><p class="value-desc">Great leadership requires brutal honesty with yourself and your team. I value transparency and directness above all else.</p></div>
-        <div class="value-card"><div class="value-number">03</div><h3 class="value-title">Human First</h3><p class="value-desc">Behind every business is a team of people. I invest deeply in culture, mentorship, and creating environments where people do their best work.</p></div>
+      <p class="section-label">How I Work</p>
+      <h2 class="section-title">My process</h2>
+      <div class="timeline">
+        <div class="timeline-step"><div class="step-num">01</div><h3 class="step-title">Discovery</h3><p class="step-desc">Understanding your data, goals, and challenges through in-depth consultation.</p></div>
+        <div class="timeline-step"><div class="step-num">02</div><h3 class="step-title">Analysis</h3><p class="step-desc">Deep dive into your data using the right tools and methodologies.</p></div>
+        <div class="timeline-step"><div class="step-num">03</div><h3 class="step-title">Delivery</h3><p class="step-desc">Clear, actionable results presented in compelling visualizations.</p></div>
+        <div class="timeline-step"><div class="step-num">04</div><h3 class="step-title">Support</h3><p class="step-desc">Ongoing guidance to ensure you get lasting value from insights.</p></div>
       </div>
     </div>
   </section>
-  <section id="contact">
+  <section id="testimonials">
     <div class="container">
-      <div class="contact-inner">
-        <p class="section-label">Contact</p>
-        <h2 class="section-title">Let's connect</h2>
-        <p class="section-body">Whether you want to collaborate, invest, or simply have a conversation — I'd love to hear from you.</p>
-        <a href="mailto:constandache.andra@gmail.com" class="contact-email">constandache.andra@gmail.com</a>
+      <p class="section-label">Testimonials</p>
+      <h2 class="section-title">What clients say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">Testimonials coming soon. Excited to share feedback from future collaborations!</p>
+          <p class="testimonial-author">Your Name Here</p>
+          <p class="testimonial-role">Future Client</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">This space is reserved for genuine client feedback. Stay tuned!</p>
+          <p class="testimonial-author">Your Name Here</p>
+          <p class="testimonial-role">Future Client</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">Great things are on the horizon. Check back for real testimonials soon.</p>
+          <p class="testimonial-author">Your Name Here</p>
+          <p class="testimonial-role">Future Client</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="blog">
+    <div class="container">
+      <p class="section-label">Latest Writing</p>
+      <h2 class="section-title">From the blog</h2>
+      <div class="blog-grid" id="blogGrid">
+        <div class="blog-card">
+          <div class="blog-thumb"><span class="blog-thumb-icon">&#x270D;</span></div>
+          <div class="blog-info">
+            <p class="blog-date">Loading posts...</p>
+            <h3 class="blog-title">Connecting to Medium</h3>
+            <p class="blog-excerpt">Your latest Medium articles will appear here automatically.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <p class="section-label">Let's Work Together</p>
+      <h2 class="section-title">Ready to unlock your data's potential?</h2>
+      <p class="section-body">Book a free 30-minute consultation and let's explore how data can transform your business.</p>
+      <a href="mailto:andra@andraco.dev" class="btn btn-primary">Book Free Consultation</a>
+    </div>
+  </section>
+  <section id="certifications">
+    <div class="container">
+      <p class="section-label">Certifications &amp; Credentials</p>
+      <h2 class="section-title">Continuous learning</h2>
+      <div class="certs-grid">
+        <div class="cert-badge"><span class="cert-icon">&#x1F3C6;</span> Google Data Analytics Professional</div>
+        <div class="cert-badge"><span class="cert-icon">&#x1F4DC;</span> AWS Cloud Practitioner</div>
+        <div class="cert-badge"><span class="cert-icon">&#x1F393;</span> IBM Data Science Professional</div>
+        <div class="cert-badge"><span class="cert-icon">&#x2705;</span> Tableau Desktop Specialist</div>
+      </div>
+    </div>
+  </section>
+  <section class="easter-egg" id="doodle">
+    <div class="container">
+      <p class="section-label">Easter Egg</p>
+      <h2 class="section-title">Leave your mark &#x2728;</h2>
+      <p class="section-body" style="margin: 0 auto;">Feeling creative? Draw something below!</p>
+      <div class="canvas-container">
+        <canvas id="drawingCanvas" width="560" height="300"></canvas>
+        <div class="color-picker" id="colorPicker">
+          <div class="color-dot active" style="background:#c8a97e" data-color="#c8a97e"></div>
+          <div class="color-dot" style="background:#f0ede8" data-color="#f0ede8"></div>
+          <div class="color-dot" style="background:#1a3a5c" data-color="#1a3a5c"></div>
+          <div class="color-dot" style="background:#e74c3c" data-color="#e74c3c"></div>
+          <div class="color-dot" style="background:#2ecc71" data-color="#2ecc71"></div>
+          <div class="color-dot" style="background:#3498db" data-color="#3498db"></div>
+        </div>
+        <div class="canvas-controls">
+          <button class="canvas-btn" onclick="clearCanvas()">Clear</button>
+          <button class="canvas-btn" onclick="changeBrush(3)">Fine</button>
+          <button class="canvas-btn" onclick="changeBrush(8)">Medium</button>
+          <button class="canvas-btn" onclick="changeBrush(16)">Thick</button>
+        </div>
       </div>
     </div>
   </section>
   <footer>
-    <span>&copy; 2026 Andra Constandache</span>
-    <span>andraco.dev</span>
+    <div class="footer-links">
+      <a href="https://github.com/andraconsta" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/" target="_blank">LinkedIn</a>
+      <a href="https://medium.com/" target="_blank">Medium</a>
+      <a href="mailto:andra@andraco.dev">Email</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Andra Constandache. All rights reserved.</p>
   </footer>
+  <script>
+    const phrases = ['I analyze data.', 'I build dashboards.', 'I tell data stories.', 'I drive decisions.'];
+    let pi = 0, ci = 0, deleting = false;
+    const typedEl = document.getElementById('typed');
+    function typeEffect() {
+      const current = phrases[pi];
+      if (!deleting) {
+        typedEl.textContent = current.substring(0, ci + 1);
+        ci++;
+        if (ci === current.length) { deleting = true; setTimeout(typeEffect, 1800); return; }
+        setTimeout(typeEffect, 80);
+      } else {
+        typedEl.textContent = current.substring(0, ci - 1);
+        ci--;
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(typeEffect, 400); return; }
+        setTimeout(typeEffect, 40);
+      }
+    }
+    typeEffect();
+    function closeMenu() { document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.hamburger').classList.remove('active'); }
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false, brushSize = 3, brushColor = '#c8a97e';
+    canvas.addEventListener('mousedown', e => { drawing = true; ctx.beginPath(); ctx.moveTo(e.offsetX, e.offsetY); });
+    canvas.addEventListener('mousemove', e => { if (!drawing) return; ctx.lineWidth = brushSize; ctx.lineCap = 'round'; ctx.strokeStyle = brushColor; ctx.lineTo(e.offsetX, e.offsetY); ctx.stroke(); });
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseleave', () => drawing = false);
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); const t = e.touches[0]; const r = canvas.getBoundingClientRect(); drawing = true; ctx.beginPath(); ctx.moveTo(t.clientX - r.left, t.clientY - r.top); });
+    canvas.addEventListener('touchmove', e => { e.preventDefault(); if (!drawing) return; const t = e.touches[0]; const r = canvas.getBoundingClientRect(); ctx.lineWidth = brushSize; ctx.lineCap = 'round'; ctx.strokeStyle = brushColor; ctx.lineTo(t.clientX - r.left, t.clientY - r.top); ctx.stroke(); });
+    canvas.addEventListener('touchend', () => drawing = false);
+    function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); }
+    function changeBrush(s) { brushSize = s; }
+    document.querySelectorAll('.color-dot').forEach(d => {
+      d.addEventListener('click', () => { document.querySelectorAll('.color-dot').forEach(x => x.classList.remove('active')); d.classList.add('active'); brushColor = d.dataset.color; });
+    });
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@andraconsta')
+      .then(r => r.json()).then(data => {
+        if (data.items && data.items.length) {
+          const grid = document.getElementById('blogGrid');
+          grid.innerHTML = '';
+          data.items.slice(0, 3).forEach(item => {
+            const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            const excerpt = item.description.replace(/<[^>]+>/g, '').substring(0, 120) + '...';
+            grid.innerHTML += '<a href="' + item.link + '" target="_blank" class="blog-card"><div class="blog-thumb"><span class="blog-thumb-icon">&#x270D;</span></div><div class="blog-info"><p class="blog-date">' + date + '</p><h3 class="blog-title">' + item.title + '</h3><p class="blog-excerpt">' + excerpt + '</p></div></a>';
+          });
+        }
+      }).catch(() => {});
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.3)' : 'none';
+    });
+  </script>
 </body>
 </html>
