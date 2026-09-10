@@ -1,0 +1,16 @@
+{
+  "name": "Dotsy - Connect the Dots",
+  "short_name": "Dotsy",
+  "description": "Join every matching pair of dots and fill the board, across 100 levels.",
+  "start_url": "/dots.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff2f8",
+  "theme_color": "#ffeaf4",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
