@@ -1,7 +1,7 @@
 {
   "name": "Dotsy - Connect the Dots",
   "short_name": "Dotsy",
-  "description": "Join every matching pair of dots and fill the board, across 100 levels.",
+  "description": "Join every sleepy worm to its tail and fill the board, across 100 levels.",
   "start_url": "/dots.html",
   "scope": "/",
   "display": "standalone",
